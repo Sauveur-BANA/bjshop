@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique | BJShop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+<section class="shop-banner">
+
+    <div class="container">
+        <p class="section-small-title">BJShop</p>
+
+        <h1>Notre Boutique</h1>
+
+        <p>
+            Découvrez notre sélection de vêtements modernes,
+            élégants et soigneusement choisis.
+        </p>
+    </div>
+
+</section>
+
+
+<section class="shop-section">
+
+    <div class="container">
+
+        <div class="shop-tools">
+
+            <div class="categories-filter">
+
+                <button class="filter-btn active" data-category="tous">
+                    Tous
+                </button>
+
+                <button class="filter-btn" data-category="ensembles">
+                    Ensembles
+                </button>
+
+                <button class="filter-btn" data-category="chemises">
+                    Chemises
+                </button>
+
+                <button class="filter-btn" data-category="pantalons">
+                    Pantalons
+                </button>
+
+            </div>
+
+            <select id="tri-produits">
+
+                <option value="default">
+                    Trier les produits
+                </option>
+                <option value="homme">
+                    Homme
+                </option>
+
+                <option value="femme">
+                    Femme
+                </option>
+                <option value="prix-croissant">
+                    Prix croissant
+                </option>
+
+                <option value="prix-decroissant">
+                    Prix décroissant
+                </option>
+
+                <option value="nom">
+                    Nom
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <p class="product-counter">
+            <span id="product-count">0</span> produit(s)
+        </p>
+
+
+        <div class="products-grid" id="liste-produits">
+        </div>
+
+    </div>
+
+</section>
+
+
+<div id="footer-container"></div>
+
+<script src="js/produits.js"></script>
+<script src="js/boutique.js"></script>
+
+</body>
+<script src="js/components.js"></script>
+</html>
