@@ -4306,3 +4306,26 @@ img {
         line-height: 1.5;
     }
 }
+
+@media (max-width: 400px) {
+
+    .advantages-grid {
+        gap: 18px 8px;
+    }
+
+    .advantage {
+        gap: 7px;
+    }
+
+    .advantage i {
+        font-size: 15px;
+    }
+
+    .advantage h3 {
+        font-size: 9px;
+    }
+
+    .advantage p {
+        font-size: 7px;
+    }
+}
