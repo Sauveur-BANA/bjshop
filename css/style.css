@@ -281,46 +281,6 @@ img {
 
 
 /* =====================================
-   ADVANTAGES
-===================================== */
-
-.advantages {
-    border-bottom: 1px solid var(--light-grey);
-}
-
-.advantages-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.advantage {
-    display: flex;
-    align-items: center;
-    gap: 17px;
-    padding: 35px 20px;
-    border-right: 1px solid var(--light-grey);
-}
-
-.advantage:last-child {
-    border-right: none;
-}
-
-.advantage i {
-    font-size: 26px;
-}
-
-.advantage h3 {
-    font-size: 13px;
-    margin-bottom: 3px;
-}
-
-.advantage p {
-    color: var(--grey);
-    font-size: 11px;
-}
-
-
-/* =====================================
    GENERAL SECTION
 ===================================== */
 
