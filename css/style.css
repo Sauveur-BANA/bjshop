@@ -4266,3 +4266,19 @@ img {
 
 }
 }
+
+@media (max-width: 600px) {
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 10px;
+    }
+
+    .features > div {
+        width: 100%;
+        min-width: 0;
+        text-align: center;
+    }
+
+}
