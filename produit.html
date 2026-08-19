@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produit | BJShop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+
+<main id="produit-container"></main>
+
+
+<div id="footer-container"></div>
+
+
+<script src="js/produits.js"></script>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const idProduit = Number(params.get("id"));
+
+const produit = produits.find(p => p.id === idProduit);
+
+const container = document.getElementById("produit-container");
+
+
+function formaterPrix(prix) {
+    return prix.toLocaleString("fr-FR") + " F CFA";
+}
+
+
+if (!produit) {
+
+    container.innerHTML = `
+        <section class="product-not-found">
+
+            <h1>Produit introuvable</h1>
+
+            <p>
+                Ce produit n'existe pas ou n'est plus disponible.
+            </p>
+
+            <a href="boutique.html" class="btn btn-dark">
+                Retour à la boutique
+            </a>
+
+        </section>
+    `;
+
+} else {
+
+    document.title = produit.nom + " | BJShop";
+
+    container.innerHTML = `
+
+        <section class="single-product-section">
+
+            <div class="container single-product-grid">
+
+                <div class="single-product-image">
+
+                    <img
+                        id="main-product-image"
+                        src="${produit.image}"
+                        alt="${produit.nom}"
+                        onerror="this.style.display='none'; document.getElementById('fallback-product').style.display='flex';"
+                    >
+
+                    <div
+                        class="image-placeholder single-product-fallback"
+                        id="fallback-product">
+
+                        <i class="fa-solid fa-shirt"></i>
+                        <span>Photo produit</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="single-product-info">
+
+                    <p class="single-category">
+                        ${produit.categorie}
+                    </p>
+
+                    <h1>
+                        ${produit.nom}
+                    </h1>
+
+                    <p class="single-price">
+                        ${formaterPrix(produit.prix)}
+                    </p>
+
+
+                    <div class="stock-status">
+
+                        ${
+                            produit.stock > 0
+                            ? `
+                                <span class="in-stock">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    En stock
+                                </span>
+                            `
+                            : `
+                                <span class="out-stock">
+                                    Rupture de stock
+                                </span>
+                            `
+                        }
+
+                        <span>
+                            ${produit.stock} disponible(s)
+                        </span>
+
+                    </div>
+
+
+                    <p class="single-description">
+                        ${produit.description}
+                    </p>
+
+
+                    <div class="product-option">
+
+                        <div class="option-title">
+                            <span>Taille</span>
+                            <small id="selected-size-text">
+                                Sélectionnez une taille
+                            </small>
+                        </div>
+
+                        <div class="size-options">
+
+                            ${produit.tailles.map(taille => `
+                                <button
+                                    type="button"
+                                    class="size-btn"
+                                    data-size="${taille}">
+
+                                    ${taille}
+
+                                </button>
+                            `).join("")}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-option">
+
+                        <div class="option-title">
+
+                            <span>Couleur</span>
+
+                            <small id="selected-color-text">
+                                Sélectionnez une couleur
+                            </small>
+
+                        </div>
+
+                        <div class="color-options">
+
+                            ${produit.couleurs.map(couleur => `
+                                <button
+                                    type="button"
+                                    class="color-btn"
+                                    data-color="${couleur.nom}"
+                                    data-image="${couleur.image}">
+
+                                    ${couleur.nom}
+
+                                </button>
+                            `).join("")}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quantity-area">
+
+                        <span>Quantité</span>
+
+                        <div class="quantity-selector">
+
+                            <button
+                                type="button"
+                                id="minus-btn">
+                                -
+                            </button>
+
+                            <input
+                                id="quantity-input"
+                                type="number"
+                                value="1"
+                                min="1"
+                                max="${produit.stock}"
+                                readonly>
+
+                            <button
+                                type="button"
+                                id="plus-btn">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="single-add-cart"
+                        id="add-to-cart">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                        Ajouter au panier
+
+                    </button>
+
+
+                    <button
+                        class="single-whatsapp-btn"
+                        id="buy-whatsapp">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        Commander sur WhatsApp
+
+                    </button>
+
+
+                    <div class="product-services">
+
+                        <div>
+                            <i class="fa-solid fa-truck-fast"></i>
+                            <span>Livraison disponible</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Commande sécurisée</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    `;
+}
+
+
+let selectedSize = null;
+
+let selectedColor = null;
+
+let quantite = 1;
+
+
+document.querySelectorAll(".size-btn").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        document.querySelectorAll(".size-btn")
+        .forEach(item => item.classList.remove("selected"));
+
+        btn.classList.add("selected");
+
+        selectedSize = btn.dataset.size;
+
+        document.getElementById("selected-size-text").textContent =
+            selectedSize;
+
+    });
+
+});
+
+
+document.querySelectorAll(".color-btn").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        document.querySelectorAll(".color-btn")
+        .forEach(item => item.classList.remove("selected"));
+
+        btn.classList.add("selected");
+
+
+        // Couleur sélectionnée
+        selectedColor = btn.dataset.color;
+
+
+        // Image correspondant à la couleur
+        const nouvelleImage =
+            btn.dataset.image;
+
+
+        // Changement de l'image principale
+        const imagePrincipale =
+            document.getElementById("main-product-image");
+
+
+        if (imagePrincipale && nouvelleImage) {
+
+            imagePrincipale.src =
+                nouvelleImage;
+
+        }
+
+
+        document
+        .getElementById("selected-color-text")
+        .textContent = selectedColor;
+
+    });
+
+});
+
+
+const quantityInput =
+    document.getElementById("quantity-input");
+
+
+document.getElementById("plus-btn")?.addEventListener("click", () => {
+
+    if (quantite < produit.stock) {
+
+        quantite++;
+
+        quantityInput.value = quantite;
+
+    }
+
+});
+
+
+document.getElementById("minus-btn")?.addEventListener("click", () => {
+
+    if (quantite > 1) {
+
+        quantite--;
+
+        quantityInput.value = quantite;
+
+    }
+
+});
+
+
+function verifierOptions() {
+
+    if (!selectedSize) {
+
+        afficherAlerte(
+            "Taille requise",
+            "Veuillez sélectionner une taille avant de continuer."
+        );
+
+        return false;
+
+    }
+
+
+    if (!selectedColor) {
+
+        afficherAlerte(
+            "Couleur requise",
+            "Veuillez sélectionner une couleur avant de continuer."
+        );
+
+        return false;
+
+    }
+
+
+    return true;
+}
+
+
+/* =====================================
+   NOTIFICATION PANIER
+===================================== */
+
+let toastTimer;
+
+function afficherToastPanier() {
+
+    const toast =
+        document.getElementById("cart-toast");
+
+    if (!toast) return;
+
+    clearTimeout(toastTimer);
+
+    toast.classList.add("show");
+
+    toastTimer = setTimeout(() => {
+        fermerToastPanier();
+    }, 3500);
+}
+
+
+function fermerToastPanier() {
+
+    const toast =
+        document.getElementById("cart-toast");
+
+    if (!toast) return;
+
+    toast.classList.remove("show");
+}
+
+
+/* =====================================
+   AJOUTER AU PANIER
+===================================== */
+
+document.getElementById("add-to-cart")?.addEventListener("click", () => {
+
+    if (!verifierOptions()) return;
+
+
+    let panier =
+        JSON.parse(localStorage.getItem("panier")) || [];
+
+
+    const produitExistant = panier.find(item =>
+        item.id === produit.id &&
+        item.taille === selectedSize &&
+        item.couleur === selectedColor
+    );
+
+
+    if (produitExistant) {
+
+        produitExistant.quantite += quantite;
+
+    } else {
+
+        panier.push({
+
+            id: produit.id,
+
+            nom: produit.nom,
+
+            prix: produit.prix,
+
+            image: produit.image,
+
+            taille: selectedSize,
+
+            couleur: selectedColor,
+
+            quantite: quantite
+
+        });
+
+    }
+
+
+    /* Enregistrement du panier */
+
+    localStorage.setItem(
+        "panier",
+        JSON.stringify(panier)
+    );
+
+
+    /* Mise à jour du compteur */
+
+    mettreAJourCompteurPanier();
+
+
+    /* Notification en haut à droite */
+
+    afficherToastPanier();
+
+});
+
+
+document.getElementById("buy-whatsapp")?.addEventListener("click", () => {
+
+    if (!verifierOptions()) return;
+
+
+    const numeroWhatsApp = "+221787113820";
+
+
+    const total =
+        produit.prix * quantite;
+
+
+    const message = `
+Bonjour BJShop,
+
+Je souhaite commander :
+
+Produit : ${produit.nom}
+Taille : ${selectedSize}
+Couleur : ${selectedColor}
+Quantité : ${quantite}
+Prix unitaire : ${formaterPrix(produit.prix)}
+Total : ${formaterPrix(total)}
+
+Merci.
+    `;
+
+
+    const url =
+        `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
+
+
+    window.open(url, "_blank");
+
+});
+
+
+function mettreAJourCompteurPanier() {
+
+    const panier =
+        JSON.parse(localStorage.getItem("panier")) || [];
+
+
+    const total =
+        panier.reduce(
+            (somme, item) =>
+                somme + item.quantite,
+            0
+        );
+
+
+    const compteur =
+        document.getElementById("cart-count");
+
+
+    if (compteur) {
+        compteur.textContent = total;
+    }
+
+}
+
+
+mettreAJourCompteurPanier();
+
+
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+
+const navbar =
+    document.getElementById("navbar");
+
+
+menuToggle?.addEventListener("click", () => {
+
+    navbar.classList.toggle("show");
+
+});
+
+function afficherAlerte(titre, message) {
+
+    const modal =
+        document.getElementById("custom-alert");
+
+    const titreElement =
+        document.getElementById("custom-alert-title");
+
+    const messageElement =
+        document.getElementById("custom-alert-message");
+
+
+    titreElement.textContent = titre;
+    messageElement.textContent = message;
+
+    modal.classList.add("show");
+}
+
+
+function fermerAlerte() {
+
+    const modal =
+        document.getElementById("custom-alert");
+
+    if (modal) {
+        modal.classList.remove("show");
+    }
+
+}
+function fermerAlerteFond(event) {
+
+    if (event.target.id === "custom-alert") {
+        fermerAlerte();
+    }
+
+}
+
+</script>
+
+<div id="custom-alert" class="custom-alert-overlay" onclick="fermerAlerteFond(event)">
+
+    <div class="custom-alert-box">
+
+        <div class="custom-alert-icon">
+            <i class="fa-solid fa-shirt"></i>
+        </div>
+
+        <h3 id="custom-alert-title">
+            Information
+        </h3>
+
+        <p id="custom-alert-message">
+            Veuillez sélectionner une option.
+        </p>
+
+        <button type="button" onclick="fermerAlerte()">
+            Compris
+        </button>
+
+    </div>
+
+</div>
+
+<!-- NOTIFICATION AJOUT AU PANIER -->
+<div id="cart-toast" class="cart-toast">
+
+    <div class="cart-toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div class="cart-toast-content">
+        <strong>Ajouté au panier</strong>
+        <span>Votre article a bien été ajouté au panier.</span>
+    </div>
+
+    <button
+        type="button"
+        class="cart-toast-close"
+        onclick="fermerToastPanier()"
+        aria-label="Fermer">
+        ×
+    </button>
+
+</div>
+</body>
+<script src="js/components.js"></script>
+</html>

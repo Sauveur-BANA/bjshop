@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panier | BJShop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+<section class="cart-page">
+
+    <div class="container">
+
+        <div class="cart-title">
+
+            <p class="section-small-title">
+                VOTRE COMMANDE
+            </p>
+
+            <h1>Votre panier</h1>
+
+        </div>
+
+
+        <div id="cart-empty" class="cart-empty">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <h2>Votre panier est vide</h2>
+
+            <p>
+                Découvrez notre collection et ajoutez vos articles préférés.
+            </p>
+
+            <a href="boutique.html" class="btn btn-dark">
+                Voir la boutique
+            </a>
+
+        </div>
+
+
+        <div id="cart-content" class="cart-layout">
+
+            <div class="cart-products">
+
+                <div id="cart-items"></div>
+
+                <a href="boutique.html" class="continue-shopping">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Continuer mes achats
+                </a>
+
+            </div>
+
+
+            <aside class="cart-summary">
+
+                <h2>Résumé</h2>
+
+
+                <div class="summary-line">
+
+                    <span>Sous-total</span>
+
+                    <strong id="subtotal">
+                        0 F CFA
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-line">
+
+                    <span>Livraison</span>
+
+                    <span>
+                        À confirmer
+                    </span>
+
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>Total produits</span>
+
+                    <strong id="total">
+                        0 F CFA
+                    </strong>
+
+                </div>
+
+                <div class="customer-form">
+
+                <h3>Informations de livraison</h3>
+
+                <div class="form-group">
+                    <label for="client-nom">Nom et prénom *</label>
+                    <input
+                        type="text"
+                        id="client-nom"
+                        placeholder="Ex : Jean Dupont"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="client-telephone">Téléphone *</label>
+                    <input
+                        type="tel"
+                        id="client-telephone"
+                        placeholder="Ex : 77 123 45 67"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="client-ville">Ville *</label>
+                    <input
+                        type="text"
+                        id="client-ville"
+                        placeholder="Ex : Dakar"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="client-quartier">Quartier / Adresse *</label>
+                    <input
+                        type="text"
+                        id="client-quartier"
+                        placeholder="Ex : Sacré-Cœur 3"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="client-indication">
+                        Indication pour la livraison
+                    </label>
+
+                    <textarea
+                        id="client-indication"
+                        placeholder="Ex : Près de la pharmacie..."
+                    ></textarea>
+                </div>
+
+            </div>
+                <p class="delivery-note">
+                    Les frais de livraison seront confirmés
+                    avec vous sur WhatsApp selon votre localisation.
+                </p>
+
+
+                <button id="order-whatsapp" class="cart-whatsapp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    Commander sur WhatsApp
+
+                </button>
+
+
+                <button id="clear-cart" class="clear-cart">
+
+                    Vider le panier
+
+                </button>
+
+
+                <div class="cart-security">
+
+                    <div>
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                        <span>
+                            Commande sécurisée
+                        </span>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-truck-fast"></i>
+
+                        <span>
+                            Livraison disponible
+                        </span>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div id="footer-container"></div>
+
+
+<script src="js/panier.js"></script>
+
+</body>
+<script src="js/components.js"></script>
+</html>

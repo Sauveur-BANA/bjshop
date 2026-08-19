@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>À propos | BJShop</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/logo/favicon.png">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div id="header-container"></div>
+
+<!-- HERO -->
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <p class="section-small-title">
+            NOTRE UNIVERS
+        </p>
+
+        <h1>
+            Plus qu'une tenue,<br>
+            <span>une identité.</span>
+        </h1>
+
+        <p>
+            BJShop propose une sélection de vêtements
+            modernes pensée pour celles et ceux qui souhaitent
+            affirmer leur style avec élégance.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- HISTOIRE -->
+
+<section class="about-story">
+
+    <div class="container about-story-grid">
+
+        <div class="about-story-image">
+
+            <img
+                src="images/produits/photo_1_2026-08-16_14-25-52.jpg"
+                alt="Collection BJShop">
+
+        </div>
+
+
+        <div class="about-story-content">
+
+            <p class="section-small-title">
+                QUI SOMMES-NOUS ?
+            </p>
+
+            <h2>
+                La mode qui accompagne votre personnalité
+            </h2>
+
+            <p>
+                BJShop est une boutique de vêtements qui
+                met l'accent sur le style, l'élégance et la
+                simplicité.
+            </p>
+
+            <p>
+                Notre objectif est de proposer des pièces
+                soigneusement sélectionnées permettant de créer
+                des tenues modernes, harmonieuses et adaptées
+                à différentes occasions.
+            </p>
+
+            <p>
+                Chaque article présenté dans notre boutique
+                est choisi avec une attention particulière
+                portée au design, à la coupe et à la facilité
+                avec laquelle il peut être associé à d'autres
+                vêtements.
+            </p>
+
+            <a href="boutique.html" class="btn btn-dark">
+                Découvrir la collection
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VALEURS -->
+
+<section class="about-values">
+
+    <div class="container">
+
+        <div class="about-section-title">
+
+            <p class="section-small-title">
+                NOS ENGAGEMENTS
+            </p>
+
+            <h2>
+                Ce qui définit BJShop
+            </h2>
+
+        </div>
+
+
+        <div class="about-values-grid">
+
+            <div class="about-value">
+
+                <span>01</span>
+
+                <i class="fa-solid fa-gem"></i>
+
+                <h3>Style</h3>
+
+                <p>
+                    Des pièces modernes sélectionnées pour
+                    construire des looks élégants et actuels.
+                </p>
+
+            </div>
+
+
+            <div class="about-value">
+
+                <span>02</span>
+
+                <i class="fa-solid fa-shirt"></i>
+
+                <h3>Sélection</h3>
+
+                <p>
+                    Une attention particulière portée aux
+                    modèles proposés dans notre catalogue.
+                </p>
+
+            </div>
+
+
+            <div class="about-value">
+
+                <span>03</span>
+
+                <i class="fa-solid fa-comments"></i>
+
+                <h3>Proximité</h3>
+
+                <p>
+                    Un accompagnement simple et direct avant,
+                    pendant et après votre commande.
+                </p>
+
+            </div>
+
+
+            <div class="about-value">
+
+                <span>04</span>
+
+                <i class="fa-solid fa-truck-fast"></i>
+
+                <h3>Service</h3>
+
+                <p>
+                    Une expérience d'achat simple avec
+                    différentes possibilités de livraison.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PHILOSOPHIE -->
+
+<section class="about-philosophy">
+
+    <div class="container about-philosophy-grid">
+
+        <div>
+
+            <p class="section-small-title">
+                NOTRE VISION
+            </p>
+
+            <h2>
+                Votre style doit parler avant vous.
+            </h2>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Nous pensons qu'un vêtement ne sert pas uniquement
+                à s'habiller. Il participe à l'image que l'on
+                souhaite transmettre.
+            </p>
+
+            <p>
+                Notre ambition est donc de construire progressivement
+                un univers où chaque client peut trouver des pièces
+                adaptées à son style et créer ses propres associations.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="about-cta">
+
+    <div class="container">
+
+        <p>PRÊT À TROUVER VOTRE STYLE ?</p>
+
+        <h2>
+            Découvrez la collection
+        </h2>
+
+        <div class="about-cta-buttons">
+
+            <a href="boutique.html" class="btn btn-white">
+                Voir la boutique
+            </a>
+
+            <a href="contact.html" class="about-contact-btn">
+                Nous contacter
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div id="footer-container"></div>
+
+
+<script>
+
+function mettreAJourCompteurPanier() {
+
+    const panier =
+        JSON.parse(localStorage.getItem("panier")) || [];
+
+    const total =
+        panier.reduce(
+            (somme, item) => somme + item.quantite,
+            0
+        );
+
+    const compteur =
+        document.getElementById("cart-count");
+
+    if (compteur) {
+        compteur.textContent = total;
+    }
+
+}
+
+mettreAJourCompteurPanier();
+
+
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const navbar =
+    document.getElementById("navbar");
+
+menuToggle.addEventListener("click", () => {
+    navbar.classList.toggle("show");
+});
+
+</script>
+
+</body>
+<script src="js/components.js"></script>
+</html>
