@@ -4269,13 +4269,13 @@ img {
 
 @media (max-width: 600px) {
 
-    .features {
+    .advantages {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 18px 10px;
     }
 
-    .features > div {
+    .advantages > div {
         width: 100%;
         min-width: 0;
         text-align: center;
