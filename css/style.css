@@ -4267,18 +4267,42 @@ img {
 }
 }
 
+/* =====================================
+   AVANTAGES - RESPONSIVE MOBILE
+   2 colonnes / 2 lignes
+===================================== */
+
 @media (max-width: 600px) {
 
-    .advantages {
+    .advantages-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 12px;
     }
 
-    .advantages > div {
+    .advantage {
         width: 100%;
         min-width: 0;
-        text-align: center;
+
+        display: flex;
+        align-items: flex-start;
+
+        gap: 10px;
     }
 
+    .advantage i {
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .advantage h3 {
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 5px;
+    }
+
+    .advantage p {
+        font-size: 8px;
+        line-height: 1.5;
+    }
 }
